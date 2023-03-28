@@ -5,15 +5,21 @@ public class CourseConnect {
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
+        // I know this looks strange, but it prints Welcome to Course Connect! but in
+        // bigger fancier words. Run it and you'll see.
         System.out.println(
                 "                                                                                                                                                                               ,---. \n,--.   ,--.       ,--.                                    ,--.              ,-----.                                         ,-----.                                      ,--.  |   | \n|  |   |  | ,---. |  | ,---. ,---. ,--,--,--. ,---.     ,-'  '-. ,---.     '  .--./ ,---. ,--.,--.,--.--. ,---.  ,---.     '  .--./ ,---. ,--,--, ,--,--,  ,---.  ,---.,-'  '-.|  .' \n|  |.'.|  || .-. :|  || .--'| .-. ||        || .-. :    '-.  .-'| .-. |    |  |    | .-. ||  ||  ||  .--'(  .-' | .-. :    |  |    | .-. ||      \\|      \\| .-. :| .--''-.  .-'|  |  \n|   ,'.   |\\   --.|  |\\ `--.' '-' '|  |  |  |\\   --.      |  |  ' '-' '    '  '--'\\' '-' ''  ''  '|  |   .-'  `)\\   --.    '  '--'\\' '-' '|  ||  ||  ||  |\\   --.\\ `--.  |  |  `--'  \n'--'   '--' `----'`--' `---' `---' `--`--`--' `----'      `--'   `---'      `-----' `---'  `----' `--'   `----'  `----'     `-----' `---' `--''--'`--''--' `----' `---'  `--'  .--.\n                                                                                                                                                                               '--'  ");
 
+        // TODO: Add loops for professor and student counselor.
         studentLoop();
 
         System.out.println("Thank you for using course connect");
     }
 
-    private static void displayMenu() {
+    /**
+     * Will display the menu for a student
+     */
+    private static void displayStudentMenu() {
         System.out.println("");
         System.out.println("Please input one of the following numbers");
         System.out.println("1. View Timetable");
@@ -22,9 +28,12 @@ public class CourseConnect {
         System.out.println("0. Exit Course Connect");
     }
 
+    /**
+     * The main loop if a user is a student
+     */
     private static void studentLoop() {
         while (true) {
-            displayMenu();
+            displayStudentMenu();
             menuChoice = input.nextInt();
 
             switch (menuChoice) {
