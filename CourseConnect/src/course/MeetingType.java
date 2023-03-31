@@ -1,5 +1,5 @@
 package course;
 
 public enum MeetingType {
-    LECTURE, LAB, SEMINAR, EXAM
+    LECTURE, LAB, SEMINAR, EXAM, NONE
 }
