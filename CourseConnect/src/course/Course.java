@@ -30,40 +30,40 @@ public class Course {
         this.preReqs.addAll(Arrays.asList(_preReqs));
     }
 
-    public Subject getSubject() {
+    public Subject GetSubject() {
         return subject;
     }
 
-    public void setSubject(Subject subject) {
+    public void SetSubject(Subject subject) {
         this.subject = subject;
     }
 
-    public Integer getCourseCode() {
+    public Integer GetCourseCode() {
         return courseCode;
     }
 
-    public void setCourseCode(Integer courseCode) {
+    public void SetCourseCode(Integer courseCode) {
         this.courseCode = courseCode;
     }
 
-    public Float getWeight() {
+    public Float GetWeight() {
         return weight;
     }
 
-    public void setWeight(Float weight) {
+    public void SetWeight(Float weight) {
         this.weight = weight;
     }
 
-    public ArrayList<Course> getPreReqs() {
+    public ArrayList<Course> GetPreReqs() {
         return preReqs;
     }
 
-    public void setPreReqs(ArrayList<Course> preReqs) {
+    public void SetPreReqs(ArrayList<Course> preReqs) {
         this.preReqs = preReqs;
     }
 
     public String toString() {
-        return subject.toString() + "*" + String.format("%04d", courseCode);
+        return this.GetSubject().toString() + "*" + String.format("%04d", this.GetCourseCode());
     }
     
 }
