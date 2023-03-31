@@ -1,6 +1,11 @@
 package users;
 
+import utils.Credentials;
+
 public abstract class Person {
+
+    private Credentials credentials;
+
     private String firstName;
     private String lastName;
 
@@ -32,4 +37,12 @@ public abstract class Person {
     public String getLastName() {
         return this.lastName;
     }
+
+    public Credentials GetCredentials() {
+        return this.credentials;
+    }
+    public void SetCredentials(Credentials _credentials) {
+        this.credentials = _credentials;
+    }
+
 }
