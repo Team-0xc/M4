@@ -5,7 +5,7 @@ import main.CourseConnect;
 public class Professor extends Person{
         private String credentials;
 
-        Professor(String _firstName, String _lastName, String _credentials) {
+        public Professor(String _firstName, String _lastName, String _credentials) {
             super(_firstName, _lastName);
 
             credentials = _credentials;

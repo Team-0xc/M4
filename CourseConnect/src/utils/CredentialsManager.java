@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 import io.Interactive;
 import main.CourseConnect;
-import users.Person;
-import users.UndergradStudent;
+// import users.Person;
+import users.*;
 
 // Class for holding instance of Person while program is running
 public class CredentialsManager implements Interactive {
@@ -16,8 +16,16 @@ public class CredentialsManager implements Interactive {
     public CredentialsManager() {
         users = new HashMap<>();
 
-        // Temp add until loading serialized file is implemented
-        users.put(new Credentials().GetHash(), new UndergradStudent(0, "Joe", "Jones"));
+        // Temp adds until loading serialized file is implemented
+        // users.put(new Credentials().GetHash(), new UndergradStudent(0, "Joe", "Jones"));
+
+        Professor prof = new Professor("Firstname", "Lastname", "Phd");
+        prof.SetCredentials(new Credentials("prof", "password"));
+        users.put(prof.GetCredentials().GetHash(), prof);
+
+        users.put(new Credentials("undergrad", "password").GetHash(), new UndergradStudent(0, "Firstname", "Lastname"));
+        users.put(new Credentials("grad", "password").GetHash(), new GradStudent(0, "Firstname", "Lastname", prof));
+        users.put(new Credentials("stucoun", "password").GetHash(), new StudentCounselor("Firstname", "Lastname"));
     }
 
     /**
