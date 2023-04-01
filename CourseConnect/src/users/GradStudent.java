@@ -1,5 +1,7 @@
 package users;
 
+import main.CourseConnect;
+
 public class GradStudent extends Student {
     private Professor Advisor = null;
 
@@ -24,6 +26,12 @@ public class GradStudent extends Student {
      */
     public Professor getProfessor() {
         return this.Advisor;
+    }
+
+    @Override
+    public void Loop(CourseConnect cc) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'Loop'");
     }
     
 }

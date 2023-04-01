@@ -1,11 +1,15 @@
 package utils;
 
+import java.io.BufferedReader;
 import java.util.HashMap;
+import java.util.Scanner;
 
+import io.Interactive;
+import main.CourseConnect;
 import users.Person;
 
 // Class for holding instance of Person while program is running
-public class CredentialsManager {
+public class CredentialsManager implements Interactive {
 
     private HashMap<String, Person> users;
 
@@ -41,6 +45,44 @@ public class CredentialsManager {
 
         // Put new user into user map
         users.put(user.GetCredentials().GetHash(), user);
+
+    }
+
+    private Credentials GetUserCredentials() {
+
+        String username, password;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter username: ");
+        username = scanner.nextLine();
+        System.out.print("Enter password: ");
+        password = scanner.nextLine();
+
+        scanner.close();
+
+        return new Credentials(username, password);
+
+    }
+
+    @Override
+    public void Loop(CourseConnect cc) {
+        
+        Person user = null;
+
+        while(user == null) {
+
+            try {
+
+                Credentials c = GetUserCredentials();
+                user = Authenticate(c);
+                
+            } catch(Exception e) {
+                System.out.println("Authentication Error: " + e.toString());
+            }
+
+        }
+
+        cc.SetUser(user);
 
     }
     

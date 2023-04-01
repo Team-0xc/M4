@@ -1,8 +1,9 @@
 package users;
 
+import io.Interactive;
 import utils.Credentials;
 
-public abstract class Person {
+public abstract class Person implements Interactive {
 
     private Credentials credentials;
 

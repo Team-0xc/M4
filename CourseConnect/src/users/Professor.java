@@ -1,5 +1,7 @@
 package users;
 
+import main.CourseConnect;
+
 public class Professor extends Person{
         private String credentials;
 
@@ -20,6 +22,12 @@ public class Professor extends Person{
 
         public void approveEnrollment() {
             //TODO: the whole function for approving enrollement. How is this going to work, what does the fucntion take?
+        }
+
+        @Override
+        public void Loop(CourseConnect cc) {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'Loop'");
         }
 
 }
