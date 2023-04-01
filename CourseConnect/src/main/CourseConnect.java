@@ -1,18 +1,49 @@
+package main;
 import java.util.Scanner;
+
+import course.Course;
+import users.Person;
+import utils.CredentialsManager;
 
 public class CourseConnect {
     private static int menuChoice;
     private static Scanner input = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    private CredentialsManager credentialsManager;
+    private Person user;
+
+    private CourseConnect() {
+        this.credentialsManager = new CredentialsManager();
+        this.user = null;
+
+    }
+
+    public Person GetUser() {
+        return user;
+    }
+    public void SetUser(Person user) {
+        this.user = user;
+    }
+
+    public void Run() {
         // I know this looks strange, but it prints Welcome to Course Connect! but in
         // bigger fancier words. Run it and you'll see.
         System.out.println(
                 "                                                                                                                                                                               ,---. \n,--.   ,--.       ,--.                                    ,--.              ,-----.                                         ,-----.                                      ,--.  |   | \n|  |   |  | ,---. |  | ,---. ,---. ,--,--,--. ,---.     ,-'  '-. ,---.     '  .--./ ,---. ,--.,--.,--.--. ,---.  ,---.     '  .--./ ,---. ,--,--, ,--,--,  ,---.  ,---.,-'  '-.|  .' \n|  |.'.|  || .-. :|  || .--'| .-. ||        || .-. :    '-.  .-'| .-. |    |  |    | .-. ||  ||  ||  .--'(  .-' | .-. :    |  |    | .-. ||      \\|      \\| .-. :| .--''-.  .-'|  |  \n|   ,'.   |\\   --.|  |\\ `--.' '-' '|  |  |  |\\   --.      |  |  ' '-' '    '  '--'\\' '-' ''  ''  '|  |   .-'  `)\\   --.    '  '--'\\' '-' '|  ||  ||  ||  |\\   --.\\ `--.  |  |  `--'  \n'--'   '--' `----'`--' `---' `---' `--`--`--' `----'      `--'   `---'      `-----' `---'  `----' `--'   `----'  `----'     `-----' `---' `--''--'`--''--' `----' `---'  `--'  .--.\n                                                                                                                                                                               '--'  ");
 
+        // main course connect loop
+        credentialsManager.Loop(this);
+        user.Loop(this);
+    }
+
+    public static void main(String[] args) {
+
         // TODO: Add loops for professor and student counselor.
         // Please see Interactive interface for looping
-        studentLoop();
+        // studentLoop();
+
+        CourseConnect cc = new CourseConnect();
+        cc.Run();
 
         System.out.println("Thank you for using course connect");
     }
