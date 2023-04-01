@@ -12,9 +12,8 @@ public class StudentCounselor extends Person{
     private static void displayStudentCounselorMenu() {
         System.out.println("");
         System.out.println("Please input one of the following numbers");
-        System.out.println("1. View Timetable");
-        System.out.println("2. Regiseter Course");
-        System.out.println("3. Drop Course");
+        System.out.println("1. View Waitlist");
+        System.out.println("2. Approve Requests");
         System.out.println("0. Exit Course Connect");
     }
 
