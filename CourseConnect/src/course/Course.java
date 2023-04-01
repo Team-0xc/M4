@@ -3,7 +3,9 @@ package course;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Course {
+import utils.Hashable;
+
+public class Course implements Hashable {
 
     private Subject subject;
     private Integer courseCode;
@@ -64,6 +66,10 @@ public class Course {
 
     public String toString() {
         return this.GetSubject().toString() + "*" + String.format("%04d", this.GetCourseCode());
+    }
+
+    public String GetHash() {
+        return Integer.toString(this.GetSubject().toString().hashCode() * String.format("%04d", this.GetCourseCode()).hashCode());
     }
     
 }
