@@ -73,14 +73,17 @@ public class CredentialsManager implements Interactive {
         
         Person user = null;
 
+        // Loop until a user is authenticated
         while(user == null) {
 
             try {
 
+                // Get credentials from input and attempt to log in user
                 Credentials c = GetUserCredentials(scanner);
                 user = Authenticate(c);
                 
             } catch(Exception e) {
+                // Credentials don't exist in system
                 System.out.println("Authentication Error: " + e.getMessage());
             }
 
