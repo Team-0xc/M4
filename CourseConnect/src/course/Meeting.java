@@ -1,6 +1,6 @@
 package course;
 
-public class Meeting {
+public class Meeting implements Comparable<Meeting> {
 
     public enum Day {
         Sun, Mon, Tue, Wed, Thu, Fri, Sat, NONE
@@ -59,6 +59,17 @@ public class Meeting {
 
     public String toString() {
         return this.GetType().toString() + " Meeting: " + this.GetDay().toString();
+    }
+
+    public int compareTo(Meeting other) {
+
+        if(this.GetDay() == other.GetDay()) {
+            // Same day, Compare start times
+            return this.GetStartTime() - other.GetStartTime();
+        }
+
+        return this.GetDay().compareTo(other.GetDay());
+
     }
 
 }
