@@ -21,6 +21,7 @@ public class UndergradStudent extends Student {
         System.out.println("0. Exit Course Connect");
     }
 
+    // This loop may be able to be moved to Student if both Undergrad and Grad have same functionality?
     @Override
     public void Loop(CourseConnect cc) {
 
