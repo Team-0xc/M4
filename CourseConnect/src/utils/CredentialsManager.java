@@ -1,12 +1,12 @@
 package utils;
 
-import java.io.BufferedReader;
 import java.util.HashMap;
 import java.util.Scanner;
 
 import io.Interactive;
 import main.CourseConnect;
 import users.Person;
+import users.UndergradStudent;
 
 // Class for holding instance of Person while program is running
 public class CredentialsManager implements Interactive {
@@ -15,6 +15,9 @@ public class CredentialsManager implements Interactive {
 
     public CredentialsManager() {
         users = new HashMap<>();
+
+        // Temp add until loading serialized file is implemented
+        users.put(new Credentials().GetHash(), new UndergradStudent(0, "Joe", "Jones"));
     }
 
     /**
@@ -48,10 +51,9 @@ public class CredentialsManager implements Interactive {
 
     }
 
-    private Credentials GetUserCredentials() {
+    private Credentials GetUserCredentials(Scanner scanner) {
 
         String username, password;
-        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter username: ");
         username = scanner.next();
@@ -66,6 +68,8 @@ public class CredentialsManager implements Interactive {
 
     @Override
     public void Loop(CourseConnect cc) {
+
+        Scanner scanner = cc.GetScanner();
         
         Person user = null;
 
@@ -73,7 +77,7 @@ public class CredentialsManager implements Interactive {
 
             try {
 
-                Credentials c = GetUserCredentials();
+                Credentials c = GetUserCredentials(scanner);
                 user = Authenticate(c);
                 
             } catch(Exception e) {
