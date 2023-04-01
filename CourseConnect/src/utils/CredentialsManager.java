@@ -54,11 +54,11 @@ public class CredentialsManager implements Interactive {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter username: ");
-        username = scanner.nextLine();
+        username = scanner.next();
         System.out.print("Enter password: ");
-        password = scanner.nextLine();
+        password = scanner.next();
 
-        scanner.close();
+        // scanner.close();
 
         return new Credentials(username, password);
 
@@ -77,7 +77,7 @@ public class CredentialsManager implements Interactive {
                 user = Authenticate(c);
                 
             } catch(Exception e) {
-                System.out.println("Authentication Error: " + e.toString());
+                System.out.println("Authentication Error: " + e.getMessage());
             }
 
         }
