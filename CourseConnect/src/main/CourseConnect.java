@@ -12,7 +12,7 @@ public class CourseConnect {
     private CredentialsManager credentialsManager;
     private Person user;
 
-    private CourseConnect() {
+    public CourseConnect() {
         this.credentialsManager = new CredentialsManager();
         this.user = null;
 
@@ -34,16 +34,6 @@ public class CourseConnect {
         // main course connect loop
         credentialsManager.Loop(this);
         user.Loop(this);
-    }
-
-    public static void main(String[] args) {
-
-        // TODO: Add loops for professor and student counselor.
-        // Please see Interactive interface for looping
-        // studentLoop();
-
-        CourseConnect cc = new CourseConnect();
-        cc.Run();
 
         System.out.println("Thank you for using course connect");
     }
