@@ -28,7 +28,7 @@ public class Location {
         this.roomNum = roomNum;
     }
 
-    public MeetingDesc(){
+    public toString(){
         String format = "";
 
         if isOnline{
