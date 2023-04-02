@@ -11,10 +11,7 @@ import java.util.Collection;
 import course.Section;
 
 public class Timetable {
-<<<<<<< HEAD
-=======
-
->>>>>>> main
+    
     private String semester;
     private ArrayList<Section> sections;
     
@@ -83,10 +80,7 @@ public class Timetable {
     }
 
     public String toString() {
-<<<<<<< HEAD
-=======
-
->>>>>>> main
+        
         String timetableString = "";
 
         // Get meetings list from each section
@@ -95,12 +89,11 @@ public class Timetable {
         }
 
         return timetableString;
-<<<<<<< HEAD
     }
-=======
-
-    }
-
->>>>>>> main
 }
+
+
+
+
+
 
