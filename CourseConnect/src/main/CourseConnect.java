@@ -1,6 +1,8 @@
 package main;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import course.*;
 import course.Meeting.Day;
@@ -46,27 +48,97 @@ public class CourseConnect {
         credentialsManager.AddUser(gradStudent);
 
         // TODO: Add courses for demo
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CIS 1300 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         Course CIS1300 = new Course(Subject.CIS, 1300, 0.5f);
-        Section CIS1300_1 = new Section(CIS1300, 1, 50, prof, new ArrayList<Meeting>() {{
+        this.catalog.AddSection(new Section(CIS1300, 1, 50, prof, new ArrayList<Meeting>() {{
             new Meeting(1300, 1350, Day.Mon, MeetingType.LECTURE);
             new Meeting(1300, 1350, Day.Wed, MeetingType.LECTURE); 
             new Meeting(1300, 1350, Day.Fri, MeetingType.LECTURE); 
             new Meeting(1400, 1550, Day.Tue, MeetingType.LAB); 
-        }});
+        }}));
 
-        Section CIS1300_2 = new Section(CIS1300, 2, 50, prof, new ArrayList<Meeting>() {{
+        this.catalog.AddSection(new Section(CIS1300, 2, 50, prof, new ArrayList<Meeting>() {{
             new Meeting(1300, 1350, Day.Mon, MeetingType.LECTURE);
             new Meeting(1300, 1350, Day.Wed, MeetingType.LECTURE); 
             new Meeting(1300, 1350, Day.Fri, MeetingType.LECTURE); 
             new Meeting(1400, 1550, Day.Thu, MeetingType.LAB); 
-        }});
+        }}));
 
-        this.catalog.AddSection(CIS1300_1);
-        this.catalog.AddSection(CIS1300_2);
+        this.catalog.AddSection(new Section(CIS1300, 3, 50, prof, new ArrayList<Meeting>() {{
+            new Meeting(800, 850, Day.Mon, MeetingType.LECTURE);
+            new Meeting(800, 850, Day.Wed, MeetingType.LECTURE); 
+            new Meeting(800, 850, Day.Fri, MeetingType.LECTURE); 
+            new Meeting(1100, 1250, Day.Tue, MeetingType.LAB); 
+        }}));
 
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CIS 1050 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Course CIS1050 = new Course(Subject.CIS, 1050, 0.5f);
+        this.catalog.AddSection(new Section(CIS1050, 3, 50, prof, new ArrayList<Meeting>() {{
+            new Meeting(1300, 1350, Day.Mon, MeetingType.LECTURE);
+            new Meeting(1300, 1350, Day.Wed, MeetingType.LECTURE); 
+            new Meeting(1300, 1350, Day.Fri, MeetingType.LECTURE); 
+            new Meeting(1400, 1550, Day.Tue, MeetingType.LAB); 
+        }}));
 
-        // Course CIS2520 = new Course()
-        // Course CIS3750 = new Course(Subject.CIS, 3750, 0.75, );
+        this.catalog.AddSection(new Section(CIS1050, 2, 50, prof, new ArrayList<Meeting>() {{
+            new Meeting(1300, 1350, Day.Mon, MeetingType.LECTURE);
+            new Meeting(1300, 1350, Day.Wed, MeetingType.LECTURE); 
+            new Meeting(1300, 1350, Day.Fri, MeetingType.LECTURE); 
+            new Meeting(1400, 1550, Day.Thu, MeetingType.LAB); 
+        }}));
+
+        this.catalog.AddSection(new Section(CIS1050, 1, 50, prof, new ArrayList<Meeting>() {{
+            new Meeting(800, 850, Day.Mon, MeetingType.LECTURE);
+            new Meeting(800, 850, Day.Wed, MeetingType.LECTURE); 
+            new Meeting(800, 850, Day.Fri, MeetingType.LECTURE); 
+            new Meeting(1100, 1250, Day.Tue, MeetingType.LAB); 
+        }}));
+
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CIS 2500 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Course CIS2500 = new Course(Subject.CIS, 2500, 0.5f, new Course[] {CIS1300});
+        this.catalog.AddSection(new Section(CIS2500, 1, 50, prof, new ArrayList<Meeting>() {{
+            new Meeting(1300, 1350, Day.Mon, MeetingType.LECTURE);
+            new Meeting(1300, 1350, Day.Wed, MeetingType.LECTURE); 
+            new Meeting(1300, 1350, Day.Fri, MeetingType.LECTURE); 
+            new Meeting(1400, 1550, Day.Tue, MeetingType.LAB); 
+        }}));
+
+        this.catalog.AddSection(new Section(CIS2500, 2, 0, prof, new ArrayList<Meeting>() {{
+            new Meeting(1300, 1350, Day.Mon, MeetingType.LECTURE);
+            new Meeting(1300, 1350, Day.Wed, MeetingType.LECTURE); 
+            new Meeting(1300, 1350, Day.Fri, MeetingType.LECTURE); 
+            new Meeting(1400, 1550, Day.Thu, MeetingType.LAB); 
+        }}));
+
+        this.catalog.AddSection(new Section(CIS2500, 3, 50, prof, new ArrayList<Meeting>() {{
+            new Meeting(800, 850, Day.Mon, MeetingType.LECTURE);
+            new Meeting(800, 850, Day.Wed, MeetingType.LECTURE); 
+            new Meeting(800, 850, Day.Fri, MeetingType.LECTURE); 
+            new Meeting(1100, 1250, Day.Tue, MeetingType.LAB); 
+        }}));
+
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CIS 2430 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        Course CIS2430 = new Course(Subject.CIS, 2430, 0.5f, new Course[] {CIS2500});
+        this.catalog.AddSection(new Section(CIS2430, 1, 50, prof, new ArrayList<Meeting>() {{
+            new Meeting(1300, 1350, Day.Mon, MeetingType.LECTURE);
+            new Meeting(1300, 1350, Day.Wed, MeetingType.LECTURE); 
+            new Meeting(1300, 1350, Day.Fri, MeetingType.LECTURE); 
+            new Meeting(1400, 1550, Day.Tue, MeetingType.LAB); 
+        }}));
+
+        this.catalog.AddSection(new Section(CIS2430, 2, 0, prof, new ArrayList<Meeting>() {{
+            new Meeting(1300, 1350, Day.Mon, MeetingType.LECTURE);
+            new Meeting(1300, 1350, Day.Wed, MeetingType.LECTURE); 
+            new Meeting(1300, 1350, Day.Fri, MeetingType.LECTURE); 
+            new Meeting(1400, 1550, Day.Thu, MeetingType.LAB); 
+        }}));
+
+        this.catalog.AddSection(new Section(CIS2430, 3, 50, prof, new ArrayList<Meeting>() {{
+            new Meeting(800, 850, Day.Mon, MeetingType.LECTURE);
+            new Meeting(800, 850, Day.Wed, MeetingType.LECTURE); 
+            new Meeting(800, 850, Day.Fri, MeetingType.LECTURE); 
+            new Meeting(1100, 1250, Day.Tue, MeetingType.LAB); 
+        }}));
     }
 
     public Person GetUser() {
