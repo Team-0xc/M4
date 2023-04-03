@@ -46,13 +46,12 @@ public class StudentCounselor extends Person{
                     System.out.println("Process to approve waitlist requests");
                     checkedRequests.clear();
                     for (WaitlistRequest currRequest : this.counselorRequestList) {
+                        System.out.println("Student: " + currRequest.requestingStudent.toString());
                         System.out.println(currRequest.requestingStudent.GetTranscript().toString());
                         System.out.printf("Want to waitlist for %s\n y/n (Or exit to cancel and exit)", currRequest.requestingSection.toString());
                         String menuChoice2 = input.next();
-                        
-                        System.out.println(menuChoice2);
 
-                        if (menuChoice2 == "exit") {
+                        if (menuChoice2.equals("exit")) {
                             break;
                         } else if (menuChoice2 == "y") {
                             System.out.println("Approved!");
@@ -84,6 +83,11 @@ public class StudentCounselor extends Person{
             this.requestingStudent = _student;
             this.requestingSection = _seection;
         }
+
+        public String toString() {
+            return this.requestingStudent.toString() + " " + this.requestingSection.toString();
+        }
+        
     }
     
 }
