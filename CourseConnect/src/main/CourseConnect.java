@@ -1,9 +1,6 @@
 package main;
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 
 import course.*;
 import course.Meeting.Day;
