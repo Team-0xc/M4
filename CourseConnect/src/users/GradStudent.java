@@ -3,8 +3,8 @@ package users;
 public class GradStudent extends Student {
     private Professor Advisor = null;
 
-    public GradStudent(int _ID, String _firstName, String _lastName, Professor _Advisor) {
-        super(_ID, _firstName, _lastName);
+    public GradStudent(int _ID, String _firstName, String _lastName, Professor _Advisor, StudentCounselor _studentCounselor) {
+        super(_ID, _firstName, _lastName, _studentCounselor);
         this.Advisor = _Advisor;
     }
     

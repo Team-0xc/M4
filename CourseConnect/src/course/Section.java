@@ -127,7 +127,7 @@ public class Section implements Hashable {
     public String toString() {
         String str = this.GetCourse().toString() + "*" + String.format("%02d", this.GetId()) + "\n";
         for(Meeting m: this.GetMeetings()) {
-            str += m.toString() + "\n";
+            str += "\t" + m.toString() + "\n";
         }
 
         return str;
