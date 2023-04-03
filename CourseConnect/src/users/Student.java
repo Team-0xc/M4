@@ -166,15 +166,25 @@ public abstract class Student extends Person implements Registrate {
                 case 3:
                     // System.out.println("Process to register for a course");
 
-                    String subjectArea;
-                    Integer courseNum, sectionID;
+                    try {
 
-                    System.out.print("Enter subject area: ");
-                    subjectArea = scanner.next();
-                    System.out.print("Enter course number: ");
-                    courseNum = scanner.nextInt();
+                        String subjectArea;
+                        Integer courseNum, sectionID;
 
-                    // Course 
+                        System.out.print("Enter subject area: ");
+                        subjectArea = scanner.next();
+                        System.out.print("Enter course number: ");
+                        courseNum = scanner.nextInt();
+                        System.out.print("Enter section number: ");
+                        sectionID = scanner.nextInt();
+
+                        Section s = cc.GetCatalog().GetSection(Subject.valueOf(subjectArea), courseNum, sectionID);
+
+                        this.Register(s);
+
+                    } catch(Exception e) {
+                        System.out.println("Registration Error: " + e.getMessage());
+                    }
 
                     break;
 

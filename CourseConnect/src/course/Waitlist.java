@@ -1,17 +1,18 @@
 package course;
 
-import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 import users.Student;
 
 public class Waitlist {
     
     private Section section;
-    private ArrayList<Student> students;
+    private Queue<Student> students;
     
     public Waitlist(Section _section) {
         this.section = _section;
-        this.students = new ArrayList<Student>();
+        this.students = new PriorityQueue<Student>();
     }
 
     public Section GetSection() {
@@ -22,12 +23,18 @@ public class Waitlist {
         this.section = section;
     }
 
-    public ArrayList<Student> GetStudents() {
-        return students;
+    public Student[] GetStudents() {
+        return (Student[])students.toArray();
     }
 
-    public Student NextStudent() throws IndexOutOfBoundsException {
-        return this.GetStudents().get(0);
+    public Student NextStudent() throws Exception {
+        Student s = students.poll();
+
+        if(s == null) {
+            throw new Exception("waitlist is empty");
+        }
+
+        return s;
     }
 
     public void AddStudent(Student student) {

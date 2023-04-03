@@ -100,4 +100,8 @@ public class CourseConnect {
         System.out.println("Thank you for using course connect");
     }
 
+    public CourseCatalog GetCatalog() {
+        return this.catalog;
+    }
+
 }
