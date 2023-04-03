@@ -143,6 +143,10 @@ public abstract class Student extends Person implements Registrate {
         return this.studentCounselor;
     }
 
+    public String toString() {
+        return getFirstName() + " " + getLastName();
+    }
+
     /**
      * Will display the menu for a student
      */

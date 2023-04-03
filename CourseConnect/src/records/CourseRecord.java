@@ -42,4 +42,10 @@ public class CourseRecord {
         this.grade = grade;
     }
 
+    public String toString() {
+        String str = this.course.toString() + " " + this.status.toString() + " " + this.grade.toString();
+
+        return str;
+    }
+
 }
