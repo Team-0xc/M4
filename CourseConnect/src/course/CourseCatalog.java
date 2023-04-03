@@ -5,33 +5,21 @@ import java.util.HashMap;
 
 public class CourseCatalog {
     
-    private HashMap<String, Course> courseOfferings;
+    private HashMap<String, Section> courseOfferings;
 
     public CourseCatalog() {
-        this.courseOfferings = new HashMap<String, Course>(0);
+        this.courseOfferings = new HashMap<String, Section>(0);
     }
 
-    public Collection<Course> GetCourses() {
+    public Collection<Section> GetCourses() {
         return courseOfferings.values();
     }
 
-    public void AddCourse(Course c) {
-        this.courseOfferings.put(c.GetHash(), c);
+    public void AddCourse(Section s) {
+        this.courseOfferings.put(s.GetHash(), s);
     }
-    public void RemoveCourse(Course c) {
-        this.courseOfferings.remove(c.GetHash());
-    }
-
-    public String toString() {
-
-        String s = "";
-
-        for(Course c: this.GetCourses()) {
-            s += c.toString() + "\n";
-        }
-
-        return s;
-
+    public void RemoveCourse(Section s) {
+        this.courseOfferings.remove(s.GetHash());
     }
 
 }
