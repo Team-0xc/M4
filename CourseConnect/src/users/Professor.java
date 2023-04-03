@@ -26,6 +26,9 @@ public class Professor extends Person{
     public void setCredentials(String _credentials) {
         this.credentials = _credentials;
     }
+    public String getCredentials() {
+        return credentials;
+    }
 
     public void ApproveEnrollment(Section section, Student student) {
         enrollRequests.add(new EnrollmentRequest(section, student));
