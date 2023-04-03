@@ -95,26 +95,57 @@ public abstract class Student extends Person implements Registrate, Comparable<S
         return ID;
     }
 
+    /**
+     * Sets the Student's ID to the provided integer value.
+     * 
+     * @param iD The integer ID to assign to this Student.
+     */
     public void SetID(int iD) {
         ID = iD;
     }
 
+    /**
+     * Returns the Transcript object for this Student.
+     * 
+     * @return The Transcript object for this Student.
+     */
     public Transcript GetTranscript() {
         return transcript;
     }
 
+    /**
+     * Sets the Transcript object for this Student to the provided Transcript object.
+     * 
+     * @param transcript The new Transcript object to use for this Student.
+     */
     public void SetTranscript(Transcript transcript) {
         this.transcript = transcript;
     }
 
+    /**
+     * Returns the Timetable object for this Student.
+     * 
+     * @return The Timetable object for this Student.
+     */
     public Timetable GetTimetable() {
         return timetable;
     }
 
+    /**
+     * Sets the Timetable object for this Student to the provided Timetable object.
+     * 
+     * @param timetable The new Timetable object to use for this Student.
+     */
     public void SetTimetable(Timetable timetable) {
         this.timetable = timetable;
     }
 
+    /**
+     * Registers a Student for a given Section of a course, after verifying that the Student meets all pre-requisites and does not have any timetable conflicts.
+     * 
+     * @param s The Section of a course to register this Student in.
+     * @throws Exception When this student is missing pre-requisite courses or has a timetable conflict with the given Section.
+     */
     public void Register(Section s) throws Exception {
         Course course = s.GetCourse();
 
@@ -136,20 +167,40 @@ public abstract class Student extends Person implements Registrate, Comparable<S
 
     }
 
+    /**
+     * Registers a Student for a given Section of a course without verifying pre-requisites or timetable conflicts.
+     * 
+     * @param s The Section of a course to register this Student in.
+     */
     public void ForceRegister(Section s) {
         timetable.AddSection(s);
         s.ForceAddStudent(this);
     }
 
+    /**
+     * Drops this Student from the given Section of a course.
+     * 
+     * @param s The Section of a course to remove this Student from.
+     */
     public void Drop(Section s) {
         timetable.RemoveSection(s);
         s.RemoveStudent(this);
     }
 
+    /**
+     * Returns the StudentCounselor object for this Student.
+     * 
+     * @return The StudentCounselor object for this Student.
+     */
     public StudentCounselor getStudentCounselor() {
         return this.studentCounselor;
     }
 
+    /**
+     * Returns a String representation of this Student in the format "firstName lastName".
+     * 
+     * @return A String representation of this Student in the format "firstName lastName".
+     */
     public String toString() {
         return getFirstName() + " " + getLastName();
     }
@@ -168,6 +219,13 @@ public abstract class Student extends Person implements Registrate, Comparable<S
         System.out.println("0. Log out");
     }
 
+    /**
+     * Prompts this Student to enter the information required to retrieve a Section of a course.
+     * 
+     * @param cc The CourseConnect object containing the Scanner to read input from.
+     * @return The Section of a course specified by this Student.
+     * @throws Exception If this Student inputs bad data, or if a requested Section does not exist.
+     */
     private Section GetSectionFromUser(CourseConnect cc) throws Exception {
 
         Scanner scanner = cc.GetScanner();
@@ -185,7 +243,11 @@ public abstract class Student extends Person implements Registrate, Comparable<S
         return cc.GetCatalog().GetSection(Subject.valueOf(subjectArea), courseNum, sectionID);
     }
 
-    // This loop may be able to be moved to Student if both Undergrad and Grad have same functionality?
+    /**
+     * Implements the CourseConnect Loop interface for this Student, allowing the Student to interact with the CourseConnect system via the console.
+     * 
+     * @param cc The CourseConnect object that lunts this Student's Loop.
+     */
     @Override
     public void Loop(CourseConnect cc) {
 
@@ -266,7 +328,13 @@ public abstract class Student extends Person implements Registrate, Comparable<S
             }
         }
     }
-
+    
+    /**
+     * Implements the Comparable interface for this Student, allowing multiple Students to be sortable.
+     * 
+     * @param o Another Student object to compare to this one.
+     * @return 0
+     */
     @Override
     public int compareTo(Student o) {
         return 0;

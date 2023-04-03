@@ -1,3 +1,10 @@
+/*
+ * The CourseConnect class represents an educational course management system. 
+ * It contains methods for initializing user accounts, adding course sections to the catalog, 
+ * getting the current user, setting the current user, getting the scanner, 
+ * running the main program loop, and getting the course catalog.
+ */
+
 package main;
 import java.util.Scanner;
 import java.util.Arrays;
@@ -18,6 +25,9 @@ public class CourseConnect {
 
     private CourseCatalog catalog;
 
+    /**
+     * Constructs and initializes an instance of the CourseConnect class.
+     */
     public CourseConnect() {
         this.credentialsManager = new CredentialsManager();
         this.user = null;
@@ -27,6 +37,9 @@ public class CourseConnect {
         InitData();
     }
 
+    /**
+     * Initializes and adds user accounts to the credentials manager.
+     */
     private void InitData() {
 
         // Create user accounts;
@@ -146,18 +159,37 @@ public class CourseConnect {
 
     }
 
+    /**
+* Returns the user object.
+*
+* @return Person object representing the user.
+*/
     public Person GetUser() {
         return user;
     }
+
+/**
+* Sets the user object.
+*
+* @param user Person object representing the user.
+*/
     public void SetUser(Person user) {
         this.user = user;
     }
 
+/**
+* Returns the Scanner object.
+*
+* @return Scanner object.
+*/
     public Scanner GetScanner() {
         return scanner;
     }
 
-    public void Run() {
+/**
+* Runs the main course connect loop.
+*/
+public void Run()  {
         scanner = new Scanner(System.in);
         // I know this looks strange, but it prints Welcome to Course Connect! but in
         // bigger fancier words. Run it and you'll see.
@@ -183,6 +215,11 @@ public class CourseConnect {
         System.out.println("System shutdown!");
     }
 
+/**
+* Returns the CourseCatalog object.
+*
+* @return CourseCatalog object.
+*/
     public CourseCatalog GetCatalog() {
         return this.catalog;
     }
