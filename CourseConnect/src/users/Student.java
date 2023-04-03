@@ -1,11 +1,13 @@
 package users;
 
 import course.*;
+import main.CourseConnect;
 import records.Timetable;
 import records.Transcript;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public abstract class Student extends Person implements Registrate {
     private int ID;
@@ -22,15 +24,6 @@ public abstract class Student extends Person implements Registrate {
     public Student(int _ID, String _firstName, String _lastName) {
         super(_firstName, _lastName);
         this.ID = _ID;
-    }
-
-    /**
-     * Will return the ID of a student
-     * 
-     * @return int student's ID
-     */
-    public int GetID() {
-        return this.ID;
     }
 
     /**
@@ -82,27 +75,32 @@ public abstract class Student extends Person implements Registrate {
         return true;
     }
 
-    public int getID() {
+    /**
+     * Will return the ID of a student
+     * 
+     * @return int student's ID
+     */
+    public int GetID() {
         return ID;
     }
 
-    public void setID(int iD) {
+    public void SetID(int iD) {
         ID = iD;
     }
 
-    public Transcript getTranscript() {
+    public Transcript GetTranscript() {
         return transcript;
     }
 
-    public void setTranscript(Transcript transcript) {
+    public void SetTranscript(Transcript transcript) {
         this.transcript = transcript;
     }
 
-    public Timetable getTimetable() {
+    public Timetable GetTimetable() {
         return timetable;
     }
 
-    public void setTimetable(Timetable timetable) {
+    public void SetTimetable(Timetable timetable) {
         this.timetable = timetable;
     }
 
@@ -116,7 +114,7 @@ public abstract class Student extends Person implements Registrate {
         }
 
         // Check timetable conflict
-        if(this.getTimetable().HasMeetingConflict(s)) {
+        if(this.GetTimetable().HasMeetingConflict(s)) {
             throw new Exception("section has a meeting conflict with another section in your timetable");
         }
 
@@ -133,5 +131,64 @@ public abstract class Student extends Person implements Registrate {
     public void Drop(Section s) {
         timetable.RemoveSection(s);
         s.RemoveStudent(this);
+    }
+
+        /**
+     * Will display the menu for a student
+     */
+    private static void displayStudentMenu() {
+        System.out.println("");
+        System.out.println("Please input one of the following numbers");
+        System.out.println("1. View Course Catalog");
+        System.out.println("2. View Timetable");
+        System.out.println("2. Register Course");
+        System.out.println("3. Drop Course");
+        System.out.println("0. Log out");
+    }
+
+    // This loop may be able to be moved to Student if both Undergrad and Grad have same functionality?
+    @Override
+    public void Loop(CourseConnect cc) {
+
+        Scanner scanner = cc.GetScanner();
+
+        while (true) {
+            displayStudentMenu();
+            int menuChoice = scanner.nextInt();
+
+            switch (menuChoice) {
+                case 1:
+                    break;
+                case 2:
+                    System.out.println(this.GetTimetable());
+                    break;
+
+                case 3:
+                    // System.out.println("Process to register for a course");
+
+                    String subjectArea;
+                    Integer courseNum, sectionID;
+
+                    System.out.print("Enter subject area: ");
+                    subjectArea = scanner.next();
+                    System.out.print("Enter course number: ");
+                    courseNum = scanner.nextInt();
+
+                    // Course 
+
+                    break;
+
+                case 4:
+                    System.out.println("Process to drop a course");
+                    break;
+
+                case 0:
+                    return;
+
+                default:
+                    System.out.println(menuChoice + " is a invalid choice.");
+                    break;
+            }
+        }
     }
 }
