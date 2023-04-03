@@ -6,14 +6,11 @@ import records.Transcript;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public abstract class Student extends Person implements Registrate {
     private int ID;
     private Transcript transcript;
     private Timetable timetable;
-    
-    // TODO: inplement and add transcript and timetable
 
     /**
      * Create a new object of type Student
@@ -39,27 +36,30 @@ public abstract class Student extends Person implements Registrate {
     /**
      * Will return a list of type course that is all the currently enrolled courses for the student
      * 
-     * @return List<Course> all currently enrolled courses
+     * @return ArrayList<Course> all currently enrolled courses
      */
-    public List<Course> getEnrCourses() {
-        List<Course> currentlyEnrolled = null;
+    public ArrayList<Course> getEnrCourses() {
+        ArrayList<Course> currentlyEnrolled = new ArrayList<Course>(0);
+        ArrayList<Section> currentlyEnrolledSections = null;
 
-        //TODO: loop through timetable and look at currently enrolled courses (aka just the section but as a course)
+        currentlyEnrolledSections = timetable.GetSections();
 
+        // loop through all the sections, and get their respective course.
+        for (Section currSection : currentlyEnrolledSections) {
+            currentlyEnrolled.add(currSection.GetCourse());
+        }
+
+        // return the courses.
         return currentlyEnrolled;
     }
 
     /**
      * Will return a list of type Section that is all the currently enrolled sections for the student
      * 
-     * @return List<Course> all currently enrolled sections
+     * @return ArrayList<Course> all currently enrolled sections
      */
-    public List<Section> getEnrSections() {
-        List<Section> currentlyEnrolled = null;
-
-        //TODO: loop through timetable and look at currently enrolled sections
-
-        return currentlyEnrolled;
+    public ArrayList<Section> getEnrSections() {
+        return this.timetable.GetSections();
     }
 
     /**
