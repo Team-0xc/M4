@@ -3,23 +3,22 @@ package course;
 import java.util.Collection;
 import java.util.HashMap;
 
-public class CourseCatalog {
-    
-    private HashMap<String, Section> courseOfferings;
+public class CourseCatalog {    
+    private HashMap<String, Section> sectionOfferings;
 
     public CourseCatalog() {
-        this.courseOfferings = new HashMap<String, Section>(0);
+        this.sectionOfferings = new HashMap<String, Section>(0);
     }
 
-    public Collection<Section> GetCourses() {
-        return courseOfferings.values();
+    public Collection<Section> GetSections() {
+        return sectionOfferings.values();
     }
 
-    public void AddCourse(Section s) {
-        this.courseOfferings.put(s.GetHash(), s);
+    public void AddSection(Section s) {
+        this.sectionOfferings.put(s.GetHash(), s);
     }
-    public void RemoveCourse(Section s) {
-        this.courseOfferings.remove(s.GetHash());
+    public void RemoveSection(Section s) {
+        this.sectionOfferings.remove(s.GetHash());
     }
 
     public Section GetSection(Subject subject, Integer courseNum, Integer sectionID) throws Exception {
