@@ -215,14 +215,23 @@ public abstract class Student extends Person implements Registrate {
 
                     } catch(Exception e) {
                         // e.printStackTrace();
-                        System.out.println("Registration Error: " + e.getMessage());
+                        System.out.println("Drop Error: " + e.getMessage());
                     }
                     break;
                 case 4:
                     // System.out.println("Process to drop a course");
                     break;
                 case 5:
-                    // System.out.println("Process to drop a course");
+                    try {
+
+                        Section s = GetSectionFromUser(cc);
+
+                        s.RequestEnrollment(this);
+
+                    } catch(Exception e) {
+                        // e.printStackTrace();
+                        System.out.println("Enrollment Error: " + e.getMessage());
+                    }
                     break;
 
                 case 0:
