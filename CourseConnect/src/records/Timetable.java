@@ -104,7 +104,7 @@ public class Timetable {
      */
     public String toString() {
 
-        String timetableString = "";
+        String timetableString = "\n === TIMETABLE === \n";
 
         // Get meetings list from each section
         for(Section s: sections) {
