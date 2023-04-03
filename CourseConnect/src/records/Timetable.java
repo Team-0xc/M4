@@ -53,7 +53,7 @@ public class Timetable {
         this.sections.add(s);
     }
     public void RemoveSection(Section s) {
-        this.sections.add(s);
+        this.sections.remove(s);
     }
 
     public String toString() {
