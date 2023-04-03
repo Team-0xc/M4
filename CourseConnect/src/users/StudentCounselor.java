@@ -50,7 +50,7 @@ public class StudentCounselor extends Person{
                         System.out.println(currRequest.requestingStudent.GetTranscript().toString());
                         System.out.printf("Want to waitlist for %s\n y/n (Or exit to cancel and exit)", currRequest.requestingSection.toString());
                         String menuChoice2 = input.next();
-                        
+
                         if (menuChoice2.equals("exit")) {
                             break;
                         } else if (menuChoice2 == "y") {
@@ -82,6 +82,10 @@ public class StudentCounselor extends Person{
         WaitlistRequest(Student _student, Section _seection) {
             this.requestingStudent = _student;
             this.requestingSection = _seection;
+        }
+
+        public String toString() {
+            return this.requestingStudent.toString() + " " + this.requestingSection.toString();
         }
         
     }
