@@ -1,10 +1,14 @@
 package users;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import course.*;
 import main.CourseConnect;
 
 public class StudentCounselor extends Person{
+    private ArrayList<WaitlistRequest> counselorRequestList;
+
     public StudentCounselor(String _firstName, String _lastName) {
         super(_firstName, _lastName);
     }
@@ -15,6 +19,10 @@ public class StudentCounselor extends Person{
         System.out.println("1. View Waitlist");
         System.out.println("2. Approve Requests");
         System.out.println("0. Exit Course Connect");
+    }
+
+    public void approveWaitlist(Student _student, Waitlist _waitlist) {
+        counselorRequestList.add(new WaitlistRequest(_student, _waitlist));
     }
 
     @Override
@@ -42,6 +50,16 @@ public class StudentCounselor extends Person{
                     System.out.println(menuChoice + " is a invalid choice.");
                     break;
             }
+        }
+    }
+
+    class WaitlistRequest {
+        Student requestingStudent;
+        Waitlist requestingWaitlist;
+
+        WaitlistRequest(Student _student, Waitlist _waitlist) {
+            this.requestingStudent = _student;
+            this.requestingWaitlist = _waitlist;
         }
     }
     

@@ -3,6 +3,8 @@ package course;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+import javax.print.attribute.standard.RequestingUserName;
+
 import users.Student;
 
 public class Waitlist {
@@ -30,8 +32,13 @@ public class Waitlist {
     public void AddStudent(Student student) {
         this.students.add(student);
     }
+
     public void RemoveStudent(Student student) {
         this.students.remove(student);
+    }
+
+    public void requestWaitlist(Student student) {
+        student.getStudentCounselor().approveWaitlist(student, this);
     }
 
 }

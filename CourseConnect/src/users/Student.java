@@ -13,6 +13,7 @@ public abstract class Student extends Person implements Registrate {
     private int ID;
     private Transcript transcript;
     private Timetable timetable;
+    private StudentCounselor studentCounselor;
 
     /**
      * Create a new object of type Student
@@ -21,9 +22,10 @@ public abstract class Student extends Person implements Registrate {
      * @param _firstName The first name of the student
      * @param _lastName  THe last name of the student
      */
-    public Student(int _ID, String _firstName, String _lastName) {
+    public Student(int _ID, String _firstName, String _lastName, StudentCounselor _studentCounselor) {
         super(_firstName, _lastName);
         this.ID = _ID;
+        this.studentCounselor = _studentCounselor;
         this.transcript = new Transcript();
         this.timetable = new Timetable();
     }
@@ -126,16 +128,22 @@ public abstract class Student extends Person implements Registrate {
         timetable.AddSection(s);
 
     }
+
     public void ForceRegister(Section s) {
         timetable.AddSection(s);
         s.ForceAddStudent(this);
     }
+
     public void Drop(Section s) {
         timetable.RemoveSection(s);
         s.RemoveStudent(this);
     }
 
-        /**
+    public StudentCounselor getStudentCounselor() {
+        return this.studentCounselor;
+    }
+
+    /**
      * Will display the menu for a student
      */
     private static void displayStudentMenu() {
