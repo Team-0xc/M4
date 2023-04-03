@@ -157,7 +157,22 @@ public abstract class Student extends Person implements Registrate {
         System.out.println("0. Log out");
     }
 
-    // private 
+    private Section GetSectionFromUser(CourseConnect cc) throws Exception {
+
+        Scanner scanner = cc.GetScanner();
+
+        String subjectArea;
+        Integer courseNum, sectionID;
+
+        System.out.print("Enter subject area: ");
+        subjectArea = scanner.next();
+        System.out.print("Enter course number: ");
+        courseNum = scanner.nextInt();
+        System.out.print("Enter section number: ");
+        sectionID = scanner.nextInt();
+
+        return cc.GetCatalog().GetSection(Subject.valueOf(subjectArea), courseNum, sectionID);
+    }
 
     // This loop may be able to be moved to Student if both Undergrad and Grad have same functionality?
     @Override
@@ -179,17 +194,7 @@ public abstract class Student extends Person implements Registrate {
 
                     try {
 
-                        String subjectArea;
-                        Integer courseNum, sectionID;
-
-                        System.out.print("Enter subject area: ");
-                        subjectArea = scanner.next();
-                        System.out.print("Enter course number: ");
-                        courseNum = scanner.nextInt();
-                        System.out.print("Enter section number: ");
-                        sectionID = scanner.nextInt();
-
-                        Section s = cc.GetCatalog().GetSection(Subject.valueOf(subjectArea), courseNum, sectionID);
+                        Section s = GetSectionFromUser(cc);
 
                         this.Register(s);
 
@@ -202,6 +207,16 @@ public abstract class Student extends Person implements Registrate {
 
                 case 3:
                     // System.out.println("Process to drop a course");
+                    try {
+
+                        Section s = GetSectionFromUser(cc);
+
+                        this.Drop(s);
+
+                    } catch(Exception e) {
+                        // e.printStackTrace();
+                        System.out.println("Registration Error: " + e.getMessage());
+                    }
                     break;
                 case 4:
                     // System.out.println("Process to drop a course");
