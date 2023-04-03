@@ -24,6 +24,8 @@ public abstract class Student extends Person implements Registrate {
     public Student(int _ID, String _firstName, String _lastName) {
         super(_firstName, _lastName);
         this.ID = _ID;
+        this.transcript = new Transcript();
+        this.timetable = new Timetable();
     }
 
     /**
@@ -183,6 +185,7 @@ public abstract class Student extends Person implements Registrate {
                         this.Register(s);
 
                     } catch(Exception e) {
+                        // e.printStackTrace();
                         System.out.println("Registration Error: " + e.getMessage());
                     }
 
