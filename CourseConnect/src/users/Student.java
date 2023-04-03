@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Scanner;
 
-public abstract class Student extends Person implements Registrate {
+public abstract class Student extends Person implements Registrate, Comparable<Student> {
     private int ID;
     private Transcript transcript;
     private Timetable timetable;
@@ -265,5 +265,10 @@ public abstract class Student extends Person implements Registrate {
                     break;
             }
         }
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return 0;
     }
 }
