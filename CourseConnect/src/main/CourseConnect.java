@@ -1,12 +1,9 @@
 package main;
 import java.util.Scanner;
 
-import course.Course;
-import course.CourseCatalog;
-import course.Section;
-import course.Subject;
-import users.Person;
-import utils.CredentialsManager;
+import course.*;
+import users.*;
+import utils.*;
 
 public class CourseConnect {
     private Scanner scanner;
@@ -22,12 +19,31 @@ public class CourseConnect {
         this.user = null;
 
         this.catalog = new CourseCatalog();
-        PopulateCatalog(catalog);
+        
+        InitData();
     }
 
-    private void PopulateCatalog(CourseCatalog catalog) {
-        Course c = new Course(Subject.CIS, 1300, 0.5f);
-        // Section s = new Section(c, 1, 10, null, );
+    private void InitData() {
+
+        // Create user accounts;
+        Professor prof = new Professor("Firstname", "Lastname", "Phd");
+        prof.SetCredentials(new Credentials("prof", "password"));
+
+        StudentCounselor stucon = new StudentCounselor("Firstname", "Lastname");
+        stucon.SetCredentials(new Credentials("stucon", "password"));
+
+        Student undergradStudent = new UndergradStudent(1234, "Firstname", "Lastname");
+        undergradStudent.SetCredentials(new Credentials("student", "password"));
+
+        Student gradStudent = new GradStudent(1234, "Firstname", "Lastname", prof);
+        gradStudent.SetCredentials(new Credentials("grad", "password"));
+
+        credentialsManager.AddUser(prof);
+        credentialsManager.AddUser(stucon);
+        credentialsManager.AddUser(undergradStudent);
+        credentialsManager.AddUser(gradStudent);
+
+        // TODO: Add courses for demo
     }
 
     public Person GetUser() {
