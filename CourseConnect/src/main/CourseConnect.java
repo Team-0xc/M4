@@ -67,7 +67,7 @@ public class CourseConnect {
             new Meeting(1400, 1550, Day.Thu, MeetingType.LAB)
         )));
 
-        this.catalog.AddSection(new Section(CIS1300, 3, 50, prof, Arrays.asList(
+        this.catalog.AddSection(new Section(CIS1300, 3, 1, prof, Arrays.asList(
             new Meeting(800, 850, Day.Mon, MeetingType.LECTURE),
             new Meeting(800, 850, Day.Wed, MeetingType.LECTURE), 
             new Meeting(800, 850, Day.Fri, MeetingType.LECTURE), 

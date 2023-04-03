@@ -51,9 +51,9 @@ public class StudentCounselor extends Person{
                         System.out.printf("Want to waitlist for %s\n y/n (Or exit to cancel and exit)", currRequest.requestingSection.toString());
                         String menuChoice2 = input.next();
 
-                        if (menuChoice2.equals("exit")) {
+                        if (menuChoice2.equalsIgnoreCase("exit")) {
                             break;
-                        } else if (menuChoice2 == "y") {
+                        } else if (menuChoice2.equalsIgnoreCase("y")) {
                             System.out.println("Approved!");
                             currRequest.requestingSection.GetWaitlist().AddStudent(currRequest.requestingStudent);
                         } else {
