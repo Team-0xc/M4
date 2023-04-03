@@ -2,6 +2,7 @@ package users;
 
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.Scanner;
 
 import course.Section;
 import main.CourseConnect;
@@ -32,6 +33,8 @@ public class Professor extends Person{
 
     @Override
     public void Loop(CourseConnect cc) {
+
+        Scanner scanner = cc.GetScanner();
         
         while(enrollRequests.size() > 0) {
 
@@ -47,6 +50,15 @@ public class Professor extends Person{
             System.out.println("Into Section: ");
             System.out.println(section);
             System.out.println("Current section enrollment: " + section.GetStudents().size() + "/" + section.GetCapacity());
+
+            System.out.println("\n\n Approve Enrollment? (y/n)");
+
+            boolean approved = scanner.next().equalsIgnoreCase("y");
+
+            if(approved) {
+                // Enroll student in section
+                student.ForceRegister(section);
+            }
 
         }
 

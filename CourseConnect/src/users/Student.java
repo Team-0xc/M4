@@ -65,14 +65,21 @@ public abstract class Student extends Person implements Registrate {
      * @return Boolean: true if the student has passed the required courses, false otherwise
      */
     public boolean HasPreqs(Collection<Course> prereqs) {
+
+        try {
         
-        // For each course in the prereqs list
-        for(Course c: prereqs) {
-            // Check if not passed
-            if(!transcript.HasPassed(c)) {
-                // If not return false
-                return false;
+            // For each course in the prereqs list
+            for(Course c: prereqs) {
+                // Check if not passed
+                if(!transcript.HasPassed(c)) {
+                    // If not return false
+                    return false;
+                }
             }
+
+        } catch(Exception e) {
+            // Course does not exist in transcript so return false
+            return false;
         }
 
         // All courses passed
