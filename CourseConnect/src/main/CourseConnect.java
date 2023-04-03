@@ -39,10 +39,10 @@ public class CourseConnect {
         StudentCounselor stucon = new StudentCounselor("Firstname", "Lastname");
         stucon.SetCredentials(new Credentials("stucon", "password"));
 
-        Student undergradStudent = new UndergradStudent(1234, "Firstname", "Lastname");
+        Student undergradStudent = new UndergradStudent(1234, "Firstname", "Lastname", stucon);
         undergradStudent.SetCredentials(new Credentials("student", "password"));
 
-        Student gradStudent = new GradStudent(1234, "Firstname", "Lastname", prof);
+        Student gradStudent = new GradStudent(1234, "Firstname", "Lastname", prof, stucon);
         gradStudent.SetCredentials(new Credentials("grad", "password"));
 
         credentialsManager.AddUser(prof);
