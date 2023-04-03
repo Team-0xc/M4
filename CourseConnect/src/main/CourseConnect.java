@@ -180,7 +180,7 @@ public class CourseConnect {
             System.out.println("Thank you for using course connect");
 
             System.out.print("Exit system? (y/n) ");
-            run = scanner.next().equalsIgnoreCase("y");
+            run = scanner.next().equalsIgnoreCase("n");
         }
         scanner.close();
         System.out.println("System shutdown!");

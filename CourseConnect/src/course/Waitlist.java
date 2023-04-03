@@ -3,8 +3,6 @@ package course;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import javax.print.attribute.standard.RequestingUserName;
-
 import users.Student;
 
 public class Waitlist {

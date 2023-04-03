@@ -33,6 +33,15 @@ public class Transcript {
         return this.courseRecords.get(c.GetHash()).GetStatus() == CourseRecord.Status.COMPLETED;
     }
 
+    public String toString() {
+        String str = "";
+        for (HashMap.Entry<String, CourseRecord> currRecord : this.courseRecords.entrySet()) {
+            str += currRecord.getValue().toString();
+        }
+
+        return str;
+    }
+
     public Float GetTotalCredits() {
 
         Float totalCredits = 0.0f;
