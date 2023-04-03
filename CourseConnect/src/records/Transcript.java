@@ -34,7 +34,7 @@ public class Transcript {
     }
 
     public String toString() {
-        String str = "";
+        String str = "\n === TRANSCRIPT === \n";
         for (HashMap.Entry<String, CourseRecord> currRecord : this.courseRecords.entrySet()) {
             str += currRecord.getValue().toString();
         }

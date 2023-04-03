@@ -35,7 +35,6 @@ public class Section implements Hashable {
         if(_meetings != null) {
             this.meetings.addAll(_meetings);
         }
-        System.out.println(this);
     }
 
     public Course GetCourse() {
@@ -127,7 +126,7 @@ public class Section implements Hashable {
     public String toString() {
         String str = this.GetCourse().toString() + "*" + String.format("%02d", this.GetId()) + "\n";
         for(Meeting m: this.GetMeetings()) {
-            str += "\t" + m.toString() + "\n";
+            str += " - " + m.toString() + "\n";
         }
 
         return str;
