@@ -30,7 +30,9 @@ public class Section implements Hashable {
         this.id = _id;
         this.capacity = _capacity;
         this.instructor = _instructor;
-        this.meetings.addAll(_meetings);
+        if(_meetings != null) {
+            this.meetings.addAll(_meetings);
+        }
     }
 
     public Course GetCourse() {
