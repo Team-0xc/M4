@@ -39,9 +39,18 @@ public abstract class Person implements Interactive {
         return this.lastName;
     }
 
+    /**
+     * Retrieves the credentials object associated with this instance
+     * @return the credentials object
+     */
     public Credentials GetCredentials() {
         return this.credentials;
     }
+    
+    /**
+     * Sets the credentials object associated with this instance
+     * @param _credentials the new credentials object
+     */
     public void SetCredentials(Credentials _credentials) {
         this.credentials = _credentials;
     }
