@@ -1,6 +1,10 @@
 package main;
 import java.util.Scanner;
 
+import course.Course;
+import course.CourseCatalog;
+import course.Section;
+import course.Subject;
 import users.Person;
 import utils.CredentialsManager;
 
@@ -11,9 +15,19 @@ public class CourseConnect {
     // The current user logged in
     private Person user;
 
+    private CourseCatalog catalog;
+
     public CourseConnect() {
         this.credentialsManager = new CredentialsManager();
         this.user = null;
+
+        this.catalog = new CourseCatalog();
+        PopulateCatalog(catalog);
+    }
+
+    private void PopulateCatalog(CourseCatalog catalog) {
+        Course c = new Course(Subject.CIS, 1300, 0.5f);
+        // Section s = new Section(c, 1, 10, null, );
     }
 
     public Person GetUser() {

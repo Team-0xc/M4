@@ -1,24 +1,25 @@
 package course;
 
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 
 public class CourseCatalog {
     
-    private ArrayList<Course> courseOfferings;
+    private HashMap<String, Course> courseOfferings;
 
     public CourseCatalog() {
-        this.courseOfferings = new ArrayList<Course>(0);
+        this.courseOfferings = new HashMap<String, Course>(0);
     }
 
-    public ArrayList<Course> GetCourses() {
-        return courseOfferings;
+    public Collection<Course> GetCourses() {
+        return courseOfferings.values();
     }
 
     public void AddCourse(Course c) {
-        this.courseOfferings.add(c);
+        this.courseOfferings.put(c.GetHash(), c);
     }
     public void RemoveCourse(Course c) {
-        this.courseOfferings.remove(c);
+        this.courseOfferings.remove(c.GetHash());
     }
 
     public String toString() {

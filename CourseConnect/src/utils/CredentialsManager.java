@@ -98,6 +98,7 @@ public class CredentialsManager implements Interactive {
         }
 
         cc.SetUser(user);
+        System.out.println("Welcome " + user.getFirstName() + " " + user.getLastName());
 
     }
     
