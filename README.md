@@ -19,3 +19,19 @@ else {
   Do More Stuff
 }
 ```
+
+Change List (From M3)
+---
+
+Section:
+- Added IsMeetingConflict method to compare Sections
+
+Transcript:
+- Renamed hasPassedCourse to HasPassed
+
+Timetable:
+- Added HasMeetingConflict method to compare Timetable Sections with a Section
+
+Meeting:
+- Changed getTimeslot to IsConflict. Check for timeslot conflict is now Meeting's responsibility
+

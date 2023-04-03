@@ -21,6 +21,18 @@ public class Timetable {
         this.sections.addAll(_sections);
     }
 
+    public boolean HasMeetingConflict(Section s) {
+
+        for(Section section: this.GetSections()) {
+            if(section.IsMeetingConflict(s)) {
+                return true;
+            }
+        }
+
+        return false;
+
+    }
+
     public String GetSemester() {
         return semester;
     }
@@ -35,6 +47,13 @@ public class Timetable {
 
     public void SetSections(ArrayList<Section> sections) {
         this.sections = sections;
+    }
+
+    public void AddSection(Section s) {
+        this.sections.add(s);
+    }
+    public void RemoveSection(Section s) {
+        this.sections.add(s);
     }
 
     public String toString() {

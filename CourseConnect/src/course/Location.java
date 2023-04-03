@@ -1,40 +1,44 @@
 package course;
 
 public class Location {
+
+    private String building;
+    private Integer roomNum;
+    private Boolean isOnline;
     
     public Location(){
-        this("", 0, False);
+        this("", 0, false);
     }    
 
     public Location (String building, int roomNum, Boolean isOnline){
         this.building = building;
         this.roomNum = roomNum;
-        this.isOnline = isOnline
+        this.isOnline = isOnline;
     }
 
-    public GetBuilding(){
+    public String GetBuilding(){
         return building;
     }
 
-    public SetBuilding(String building){
+    public void SetBuilding(String building){
         this.building = building;
     }
 
-    public GetRoomNum(){
+    public Integer GetRoomNum(){
         return roomNum;
     }
 
-    public SetRoomNum(int roomNum){
+    public void SetRoomNum(int roomNum){
         this.roomNum = roomNum;
     }
 
-    public toString(){
+    public String toString(){
         String format = "";
 
-        if isOnline{
+        if(isOnline) {
             format = "Online";
         }
-        else{
+        else {
             format = "In Person";
         }
 
