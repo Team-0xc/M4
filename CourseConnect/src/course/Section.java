@@ -66,6 +66,10 @@ public class Section implements Hashable {
         return instructor;
     }
 
+    public Waitlist GetWaitlist() {
+        return this.waitlist;
+    }
+
     public void SetInstructor(Professor instructor) {
         this.instructor = instructor;
     }
