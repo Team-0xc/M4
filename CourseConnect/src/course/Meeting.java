@@ -61,6 +61,18 @@ public class Meeting implements Comparable<Meeting> {
         return this.GetType().toString() + " Meeting: " + this.GetDay().toString();
     }
 
+    public boolean IsConflict(Meeting other) {
+
+        if(this.GetDay() == other.GetDay()) {
+            // Same day, check if other start/end time is in between this start/end time
+            return (other.GetStartTime() > this.GetStartTime() && other.GetStartTime() < this.GetEndTime()) ||
+                   (other.GetEndTime() > this.GetStartTime() && other.GetEndTime() < this.GetEndTime());
+        }
+
+        return false;
+
+    }
+
     public int compareTo(Meeting other) {
 
         if(this.GetDay() == other.GetDay()) {

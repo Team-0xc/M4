@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import users.Professor;
+import users.Student;
 
 public class Section {
 
@@ -11,6 +12,7 @@ public class Section {
     private Integer id, capacity;
     private Professor instructor;
     private ArrayList<Meeting> meetings;
+    private ArrayList<Student> students;
 
     private Section() {
         this.id = 0;
@@ -18,6 +20,7 @@ public class Section {
         this.instructor = null;
         this.course = null;
         this.meetings = new ArrayList<Meeting>(0);
+        this.students = new ArrayList<Student>(0);
     }
 
     private Section(Course _course, Integer _id, Integer _capacity, Professor _instructor, Collection<Meeting> _meetings) {
@@ -67,6 +70,38 @@ public class Section {
 
     public void SetMeetings(ArrayList<Meeting> meetings) {
         this.meetings = meetings;
+    }
+
+    public ArrayList<Student> GetStudents() {
+        return this.students;
+    }
+
+    public void AddStudent(Student s) throws Exception {
+        if(this.GetStudents().size() >= this.GetCapacity()) {
+            throw new Exception("section is full");
+        }
+
+        this.students.add(s);
+    }
+    public void ForceAddStudent(Student s) {
+        this.students.add(s);
+    }
+    public void RemoveStudent(Student s)  {
+        this.students.remove(s);
+    }
+
+    public boolean IsMeetingConflict(Section other) {
+
+        // Compare each meetings against eachother for conflict
+        for(Meeting m1: this.GetMeetings()) {
+            for(Meeting m2: other.GetMeetings()) {
+                if(m1.IsConflict(m2)) {
+                    // Return true if conflict exists
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public String toString() {
