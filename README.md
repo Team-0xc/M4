@@ -38,3 +38,6 @@ Meeting:
 Waitlist:
 - Removed capacity and id fields as they are unnesscary
 
+Student:
+- Changed constructor to take a student counselor
+- Added more methods
