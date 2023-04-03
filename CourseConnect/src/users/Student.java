@@ -185,7 +185,7 @@ public abstract class Student extends Person implements Registrate {
                         this.Register(s);
 
                     } catch(Exception e) {
-                        e.printStackTrace();
+                        // e.printStackTrace();
                         System.out.println("Registration Error: " + e.getMessage());
                     }
 

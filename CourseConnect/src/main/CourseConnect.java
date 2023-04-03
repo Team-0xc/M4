@@ -1,6 +1,7 @@
 package main;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import course.*;
 import course.Meeting.Day;
@@ -47,19 +48,19 @@ public class CourseConnect {
 
         // TODO: Add courses for demo
         Course CIS1300 = new Course(Subject.CIS, 1300, 0.5f);
-        Section CIS1300_1 = new Section(CIS1300, 1, 50, prof, new ArrayList<Meeting>() {{
-            new Meeting(1300, 1350, Day.Mon, MeetingType.LECTURE);
-            new Meeting(1300, 1350, Day.Wed, MeetingType.LECTURE); 
-            new Meeting(1300, 1350, Day.Fri, MeetingType.LECTURE); 
-            new Meeting(1400, 1550, Day.Tue, MeetingType.LAB); 
-        }});
+        Section CIS1300_1 = new Section(CIS1300, 1, 50, prof, Arrays.asList(
+            new Meeting(1300, 1350, Day.Mon, MeetingType.LECTURE),
+            new Meeting(1300, 1350, Day.Wed, MeetingType.LECTURE), 
+            new Meeting(1300, 1350, Day.Fri, MeetingType.LECTURE), 
+            new Meeting(1400, 1550, Day.Tue, MeetingType.LAB)
+        ));
 
-        Section CIS1300_2 = new Section(CIS1300, 2, 50, prof, new ArrayList<Meeting>() {{
-            new Meeting(1300, 1350, Day.Mon, MeetingType.LECTURE);
-            new Meeting(1300, 1350, Day.Wed, MeetingType.LECTURE); 
-            new Meeting(1300, 1350, Day.Fri, MeetingType.LECTURE); 
-            new Meeting(1400, 1550, Day.Thu, MeetingType.LAB); 
-        }});
+        Section CIS1300_2 = new Section(CIS1300, 2, 50, prof, Arrays.asList(
+            new Meeting(1300, 1350, Day.Mon, MeetingType.LECTURE),
+            new Meeting(1300, 1350, Day.Wed, MeetingType.LECTURE), 
+            new Meeting(1300, 1350, Day.Fri, MeetingType.LECTURE), 
+            new Meeting(1400, 1550, Day.Thu, MeetingType.LAB)
+        ));
 
         this.catalog.AddSection(CIS1300_1);
         this.catalog.AddSection(CIS1300_2);
