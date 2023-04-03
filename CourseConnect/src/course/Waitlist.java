@@ -14,20 +14,20 @@ public class Waitlist {
         this.students = new ArrayList<Student>();
     }
 
-    public Section getSection() {
+    public Section GetSection() {
         return section;
     }
 
-    public void setSection(Section section) {
+    public void SetSection(Section section) {
         this.section = section;
     }
 
-    public ArrayList<Student> getStudents() {
+    public ArrayList<Student> GetStudents() {
         return students;
     }
 
     public Student NextStudent() throws IndexOutOfBoundsException {
-        return this.getStudents().get(0);
+        return this.GetStudents().get(0);
     }
 
     public void AddStudent(Student student) {
