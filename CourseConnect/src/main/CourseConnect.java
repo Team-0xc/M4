@@ -113,7 +113,7 @@ public class CourseConnect {
             new Meeting(1400, 1550, Day.Thu, MeetingType.LAB)
         )));
 
-        this.catalog.AddSection(new Section(CIS2500, 3, 50, prof, Arrays.asList(
+        this.catalog.AddSection(new Section(CIS2500, 3, 1, prof, Arrays.asList(
             new Meeting(800, 850, Day.Mon, MeetingType.LECTURE),
             new Meeting(800, 850, Day.Wed, MeetingType.LECTURE), 
             new Meeting(800, 850, Day.Fri, MeetingType.LECTURE), 
@@ -169,15 +169,17 @@ public class CourseConnect {
 
         // main course connect loop
 
-        // Log user in
-        credentialsManager.Loop(this);
+        while(true) {
+            // Log user in
+            credentialsManager.Loop(this);
 
-        // Run user control loop
-        user.Loop(this);
+            // Run user control loop
+            user.Loop(this);
 
-        scanner.close();
+            scanner.close();
 
-        System.out.println("Thank you for using course connect");
+            System.out.println("Thank you for using course connect");
+        }
     }
 
     public CourseCatalog GetCatalog() {

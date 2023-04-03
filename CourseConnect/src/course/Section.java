@@ -14,6 +14,7 @@ public class Section implements Hashable {
     private Professor instructor;
     private ArrayList<Meeting> meetings;
     private ArrayList<Student> students;
+    private Waitlist waitlist;
 
     private Section() {
         this.id = 0;
@@ -22,6 +23,7 @@ public class Section implements Hashable {
         this.course = null;
         this.meetings = new ArrayList<Meeting>(0);
         this.students = new ArrayList<Student>(0);
+        this.waitlist = new Waitlist();
     }
 
     public Section(Course _course, Integer _id, Integer _capacity, Professor _instructor, Collection<Meeting> _meetings) {
@@ -92,6 +94,16 @@ public class Section implements Hashable {
     }
     public void RemoveStudent(Student s)  {
         this.students.remove(s);
+
+        try {
+            Student nextStudent = null;
+            while((nextStudent = this.waitlist.NextStudent()) != null) {
+                nextStudent.ForceRegister(this);
+            }
+        } catch(Exception e) {
+            
+        }
+
     }
 
     public boolean IsMeetingConflict(Section other) {

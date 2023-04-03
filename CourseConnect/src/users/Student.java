@@ -192,7 +192,10 @@ public abstract class Student extends Person implements Registrate {
                     break;
 
                 case 4:
-                    System.out.println("Process to drop a course");
+                    // System.out.println("Process to drop a course");
+
+                    
+
                     break;
 
                 case 0:

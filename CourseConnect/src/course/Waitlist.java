@@ -7,20 +7,10 @@ import users.Student;
 
 public class Waitlist {
     
-    private Section section;
     private Queue<Student> students;
     
-    public Waitlist(Section _section) {
-        this.section = _section;
+    public Waitlist() {
         this.students = new PriorityQueue<Student>();
-    }
-
-    public Section GetSection() {
-        return section;
-    }
-
-    public void SetSection(Section section) {
-        this.section = section;
     }
 
     public Student[] GetStudents() {
