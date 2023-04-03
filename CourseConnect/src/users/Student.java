@@ -7,7 +7,7 @@ import records.Transcript;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.Scanner;
 
 public abstract class Student extends Person implements Registrate {
     private int ID;
