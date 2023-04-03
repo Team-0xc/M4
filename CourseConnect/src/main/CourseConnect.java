@@ -169,17 +169,21 @@ public class CourseConnect {
 
         // main course connect loop
 
-        while(true) {
+        boolean run = true;
+        while(run) {
             // Log user in
             credentialsManager.Loop(this);
 
             // Run user control loop
             user.Loop(this);
 
-            scanner.close();
-
             System.out.println("Thank you for using course connect");
+
+            System.out.print("Exit system? (y/n) ");
+            run = scanner.next().equalsIgnoreCase("y");
         }
+        scanner.close();
+        System.out.println("System shutdown!");
     }
 
     public CourseCatalog GetCatalog() {
