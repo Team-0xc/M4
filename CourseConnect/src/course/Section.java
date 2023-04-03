@@ -30,7 +30,10 @@ public class Section implements Hashable {
         this.id = _id;
         this.capacity = _capacity;
         this.instructor = _instructor;
-        this.meetings.addAll(_meetings);
+        if(_meetings != null) {
+            this.meetings.addAll(_meetings);
+        }
+        System.out.println(this);
     }
 
     public Course GetCourse() {
@@ -106,11 +109,16 @@ public class Section implements Hashable {
     }
 
     public String toString() {
-        return this.GetCourse().toString() + "*" + String.format("%04d", this.GetId());
+        String str = this.GetCourse().toString() + "*" + String.format("%02d", this.GetId()) + "\n";
+        for(Meeting m: this.GetMeetings()) {
+            str += m.toString() + "\n";
+        }
+
+        return str;
     }
 
     public String GetHash() {
-        return Integer.toString(this.toString().hashCode());
+        return Integer.toString(this.GetCourse().toString().hashCode() * this.GetId().toString().hashCode());
     }
     
 }
