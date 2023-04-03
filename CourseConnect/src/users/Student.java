@@ -141,12 +141,15 @@ public abstract class Student extends Person implements Registrate {
     private static void displayStudentMenu() {
         System.out.println("");
         System.out.println("Please input one of the following numbers");
-        System.out.println("1. View Course Catalog");
-        System.out.println("2. View Timetable");
+        System.out.println("1. View Timetable");
         System.out.println("2. Register Course");
         System.out.println("3. Drop Course");
+        System.out.println("4. Request Waitlist Course");
+        System.out.println("5. Request Professor to Enroll in Course");
         System.out.println("0. Log out");
     }
+
+    // private 
 
     // This loop may be able to be moved to Student if both Undergrad and Grad have same functionality?
     @Override
@@ -160,12 +163,10 @@ public abstract class Student extends Person implements Registrate {
 
             switch (menuChoice) {
                 case 1:
-                    break;
-                case 2:
                     System.out.println(this.GetTimetable());
                     break;
 
-                case 3:
+                case 2:
                     // System.out.println("Process to register for a course");
 
                     try {
@@ -191,11 +192,14 @@ public abstract class Student extends Person implements Registrate {
 
                     break;
 
+                case 3:
+                    // System.out.println("Process to drop a course");
+                    break;
                 case 4:
                     // System.out.println("Process to drop a course");
-
-                    
-
+                    break;
+                case 5:
+                    // System.out.println("Process to drop a course");
                     break;
 
                 case 0:
