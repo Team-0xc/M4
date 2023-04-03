@@ -1,10 +1,14 @@
 package users;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import course.*;
 import main.CourseConnect;
 
 public class StudentCounselor extends Person{
+    private ArrayList<Student> counselorRequestList;
+
     public StudentCounselor(String _firstName, String _lastName) {
         super(_firstName, _lastName);
     }
