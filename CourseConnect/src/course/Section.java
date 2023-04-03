@@ -132,5 +132,9 @@ public class Section implements Hashable {
     public String GetHash() {
         return Integer.toString(this.GetCourse().toString().hashCode() * this.GetId().toString().hashCode());
     }
+
+    public void RequestEnrollment(Student s) {
+        this.GetInstructor().ApproveEnrollment(this, s);
+    }
     
 }
