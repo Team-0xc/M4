@@ -35,3 +35,6 @@ Timetable:
 Meeting:
 - Changed getTimeslot to IsConflict. Check for timeslot conflict is now Meeting's responsibility
 
+Waitlist:
+- Removed capacity and id fields as they are unnesscary
+

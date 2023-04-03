@@ -5,8 +5,9 @@ import java.util.Collection;
 
 import users.Professor;
 import users.Student;
+import utils.Hashable;
 
-public class Section {
+public class Section implements Hashable {
 
     private Course course;
     private Integer id, capacity;
@@ -23,7 +24,7 @@ public class Section {
         this.students = new ArrayList<Student>(0);
     }
 
-    private Section(Course _course, Integer _id, Integer _capacity, Professor _instructor, Collection<Meeting> _meetings) {
+    public Section(Course _course, Integer _id, Integer _capacity, Professor _instructor, Collection<Meeting> _meetings) {
         this();
         this.course = _course;
         this.id = _id;
@@ -106,6 +107,10 @@ public class Section {
 
     public String toString() {
         return this.GetCourse().toString() + "*" + String.format("%04d", this.GetId());
+    }
+
+    public String GetHash() {
+        return Integer.toString(this.toString().hashCode());
     }
     
 }
