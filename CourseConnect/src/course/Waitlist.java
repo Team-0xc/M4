@@ -37,8 +37,8 @@ public class Waitlist {
         this.students.remove(student);
     }
 
-    public void requestWaitlist(Student student) {
-        student.getStudentCounselor().approveWaitlist(student, this);
+    public void requestWaitlist(Student student, Section section) {
+        student.getStudentCounselor().approveWaitlist(student, section);
     }
 
 }
