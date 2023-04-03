@@ -22,4 +22,15 @@ public class CourseCatalog {
         this.courseOfferings.remove(s.GetHash());
     }
 
+    public Section GetSection(Subject subject, Integer courseNum, Integer sectionID) throws Exception {
+        Section s = this.courseOfferings.get(new Section(new Course(subject, courseNum, 0.0f), sectionID, 0, null, null).GetHash());
+
+        if(s == null) {
+            throw new Exception("section does not exist");
+        }
+
+        return s;
+
+    }
+
 }
